@@ -1,6 +1,11 @@
 <h1 align="center">Alpha</h1>
 <h3 align="center">Projeto para detectar marcações de gabarito usando CNN.</h3>
 
+## Objetivos
+Esse projeto tem como objetivos:
+1. Detectar até 3 classes de objetos diferentes em um gabarito (bloco de questões, identificação do aluno e identificação da prova)
+2. Marcar na imagem a região de cada uma das classes detectadas
+
 ## Configurações
 Para executar os projetos desse repositório você precisa:
 1. anaconda
