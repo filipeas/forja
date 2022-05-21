@@ -16,7 +16,7 @@
         }
 
         .bloco-nome article {
-            height: 45px;
+            height: 35px;
             border: 1px solid #000;
         }
 
@@ -29,10 +29,20 @@
 
 <body>
 
+    <?php
+    require_once 'vendor/autoload.php';
+    require_once 'vendor/fzaninotto/Faker/src/autoload.php';
+    $faker = Faker\Factory::create();
+    ?>
+
     <h1 class="text-center">Diagrama de gabarito modelo ENEM <br> <button class=" btn btn-success" onclick="generate()">Gerar Folha-Resposta</button></h1>
     <hr>
 
     <div class="container bg-white p-5" style="padding-right: 150px!important;" id="folha-resposta">
+        <?php
+        $nomeCompleto = $faker->name . ' ' . $faker->lastname;
+        ?>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="row pb-4" id="cabecalho">
@@ -55,12 +65,12 @@
                             <div class="col-md-8" style="border-right: 1px solid #000;">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3>Nome completo:</h3>
+                                        <h5>Nome completo: <?= $nomeCompleto ?></h5>
                                         <div class="bloco-nome">
                                             <?php
                                             for ($i = 0; $i < 54; $i++) {
                                             ?>
-                                                <article></article>
+                                                <article class="text-center"><?= (isset($nomeCompleto[$i]) ? $nomeCompleto[$i] : '') ?></article>
                                             <?php
                                             }
                                             ?>
@@ -93,13 +103,13 @@
                                         <h6>Número de identificação</h6>
                                     </div>
                                     <div class="col-md-12 pt-1 pb-1" style="border-top: 1px solid #000; border-bottom: 1px solid #000;">
-                                        <h6>123456</h6>
+                                        <h6><?= $faker->randomNumber($nbDigits = NULL, $strict = false) ?></h6>
                                     </div>
                                     <div class="col-md-12 bg-primary text-white" style="border-top: 1px solid #000; border-bottom: 1px solid #000;">
                                         <h6>Turma</h6>
                                     </div>
                                     <div class="col-md-12 pt-1 pb-1" style="border-top: 1px solid #000; border-bottom: 1px solid #000;">
-                                        <h6>xxx</h6>
+                                        <h6><?= $faker->randomNumber($nbDigits = NULL, $strict = false) ?></h6>
                                     </div>
                                     <div class="col-md-12" style="border-top: 1px solid #000; border-bottom: 1px solid #000;">
                                         <h6>PARA USO EXCLUSIVO DO CHEFE DE SALA</h6>
