@@ -38,7 +38,7 @@
     <h1 class="text-center">Diagrama de gabarito modelo ENEM <br> <button class=" btn btn-success" onclick="generate()">Gerar Folha-Resposta</button></h1>
     <hr>
 
-    <div class="container bg-white p-5" style="padding-right: 150px!important;" id="folha-resposta">
+    <div class="container bg-white p-5" id="folha-resposta">
         <?php
         $nomeCompleto = $faker->name . ' ' . $faker->lastname;
         ?>
@@ -286,7 +286,7 @@
 
         function generate() {
             domtoimage
-                .toBlob(folhaResposta)
+                .toBlob(folhaResposta, {width: 1500})
                 .then(function(blob) {
                     url = window.URL.createObjectURL(blob);
                     var a = document.createElement("a");
