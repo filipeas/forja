@@ -1,4 +1,10 @@
-from Layer import Layer
+import sys
+import os
+
+ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(ROOT_DIR)
+
+from layer.Layer import Layer
 import numpy as np
 
 class FCLayer(Layer):
