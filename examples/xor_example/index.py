@@ -1,14 +1,12 @@
 import sys
 import os
-
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-print(SCRIPT_DIR)
-# sys.path.append(os.path.dirname(SCRIPT_DIR))
-
 import numpy as np
 
-# from Network import Network
-# from FCLayer import FCLayer
-# from ActivationLayer import ActivationLayer
-# from Activation import tanh, tanhPrime
-# from Loss import mse, msePrime
+ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "src")
+sys.path.append(ROOT_DIR)
+
+from network.Network import Network
+from layer.FCLayer import FCLayer
+from layer.ActivationLayer import ActivationLayer
+from activation.Activation import tanh, tanhPrime
+from loss.Loss import mse, msePrime
