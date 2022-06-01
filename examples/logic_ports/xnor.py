@@ -15,7 +15,7 @@ from loss.Loss import mse, msePrime
 # dados de treino
 x_test = np.array([ [[1,0]], [[1,1]], [[0,0]], [[0,1]] ])
 x_train = np.array([ [[0,0]], [[0,1]], [[1,0]], [[1,1]] ])
-y_train = np.array([ [[0]], [[1]], [[1]], [[0]] ])
+y_train = np.array([ [[1]], [[0]], [[0]], [[1]] ])
 
 # criando a rede
 net = Network()
@@ -26,7 +26,7 @@ net.add(ActivationLayer(tanh, tanhPrime))
 
 # trainando rede
 net.use(mse, msePrime)
-net.fit(x_train, y_train, 1000, learningRate = 0.11)
+net.fit(x_train, y_train, 1000, learningRate = 0.29)
 
 # testando rede
 out = net.predict(x_test)

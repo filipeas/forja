@@ -55,4 +55,4 @@ class Network:
                     error = layer.backwardPropagation(error, learningRate)
             
             err /= samples
-            print('epoch %d%d   error=%f' % (i + 1, epochs, err))
+            print('[epoch %d/%d   error = %f]' % (i + 1, epochs, err))
