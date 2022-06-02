@@ -1,5 +1,4 @@
-from unittest import result
-
+import numba
 
 class Network:
     def __init__(self):
@@ -23,6 +22,7 @@ class Network:
     """
     Function for predict output for given input
     """
+    @numba.jit(forceobj=True)
     def predict(self, input):
         samples = len(input)
         result = []
@@ -38,6 +38,7 @@ class Network:
     """
     Function for train the network
     """
+    @numba.jit(forceobj=True)
     def fit(self, xTrain, yTrain, epochs, learningRate):
         samples = len(xTrain)
 
