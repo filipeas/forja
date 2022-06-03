@@ -7,7 +7,7 @@ ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", 
 sys.path.append(ROOT_DIR)
 
 from network.Network import Network
-from convolutional.Convolutional import ConvLayer
+from layer.Convolutional import ConvLayer
 from layer.ActivationLayer import ActivationLayer
 from activation.Activation import tanh, tanhPrime
 from loss.Loss import mse, msePrime

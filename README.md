@@ -9,9 +9,12 @@ As dependências do projeto são:
 
 Há alguns exemplos que dependem de algumas bibliotecas. Veja a lista abaixo dos exemplos e suas dependências:
 
-1. mnist (tensorflow)
+1. mnist 
 
-* Windows
+Dependências: 
+* tensorflow
+
+### Windows e linux
 
 Para instalar o tensorflow utilize o anaconda. 
 
@@ -19,10 +22,18 @@ Para instalar o tensorflow utilize o anaconda.
 conda create --name forja python=3.8
 ```
 
-* Macos
+### Macos
 
 No mac m1 utilize o arquivo environment.yml para instalar as dependências corretas.
 
 ```
 conda env create --file=./environment.yml --name=forja
 ```
+
+2. mnist_conv
+
+Dependências:
+* tensorflow
+* matplotlib
+
+Utilize o conda para instalar o matplotlib com o comando ``` conda install -c conda-forge matplotlib ```.
