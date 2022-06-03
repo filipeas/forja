@@ -1,3 +1,9 @@
+import sys
+import os
+
+ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(ROOT_DIR)
+
 from Layer import Layer
 
 class ActivationLayer(Layer):
