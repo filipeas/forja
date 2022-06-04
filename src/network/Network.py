@@ -57,3 +57,6 @@ class Network:
             
             err /= samples
             print('[epoch %d/%d   error = %f]' % (i + 1, epochs, err))
+    
+    def layers():
+        return self.layers
