@@ -8,6 +8,7 @@ from Layer import Layer
 
 class ActivationLayer(Layer):
     def __init__(self, activation, activationPrime):
+        self.name = "activation"
         self.activation = activation
         self.activationPrime = activationPrime
     

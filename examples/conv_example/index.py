@@ -42,7 +42,12 @@ verificando camadas
 """
 # retornar uma lista de todas as camadas criadas. Cada camada é convertida para array numpy para plot
 layer_outputs = [np.array(layer.output) for layer in net.layers] # esse exemplo retorna uma lista com 6 camadas (exatamente a qtd de camadas criadas)
-print(len(layer_outputs))
+# print(len(layer_outputs))
+
+"""
+plotando sumário da rede
+"""
+net.summary()
 
 """
 plots
@@ -59,18 +64,18 @@ plots
 # plt.matshow(y_img[0, :, :, 1], cmap ='viridis')
 # plt.show()
 
-# plot da primeira camada convolucional
-plt.matshow(layer_outputs[0], cmap ='viridis')
-# plot da primeira camada de ativação
-plt.matshow(layer_outputs[1], cmap ='viridis')
-# plot da segunda camada convolucional
-plt.matshow(layer_outputs[2], cmap ='viridis')
-# plot da segunda camada de ativação
-plt.matshow(layer_outputs[3], cmap ='viridis')
-# plot da terceira camada convolucional
-plt.matshow(layer_outputs[4][:, :, 0], cmap ='viridis')
-plt.matshow(layer_outputs[4][:, :, 1], cmap ='viridis')
-# plot da terceira camada de ativação
-plt.matshow(layer_outputs[5][:, :, 0], cmap ='viridis')
-plt.matshow(layer_outputs[5][:, :, 1], cmap ='viridis')
-plt.show()
+# # plot da primeira camada convolucional
+# plt.matshow(layer_outputs[0], cmap ='viridis')
+# # plot da primeira camada de ativação
+# plt.matshow(layer_outputs[1], cmap ='viridis')
+# # plot da segunda camada convolucional
+# plt.matshow(layer_outputs[2], cmap ='viridis')
+# # plot da segunda camada de ativação
+# plt.matshow(layer_outputs[3], cmap ='viridis')
+# # plot da terceira camada convolucional
+# plt.matshow(layer_outputs[4][:, :, 0], cmap ='viridis')
+# plt.matshow(layer_outputs[4][:, :, 1], cmap ='viridis')
+# # plot da terceira camada de ativação
+# plt.matshow(layer_outputs[5][:, :, 0], cmap ='viridis')
+# plt.matshow(layer_outputs[5][:, :, 1], cmap ='viridis')
+# plt.show()

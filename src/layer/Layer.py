@@ -1,5 +1,6 @@
 class Layer:
     def __init__(self):
+        self.name = ""
         self.input = None
         self.output = None
     
@@ -11,3 +12,6 @@ class Layer:
     
     def output():
         return self.output
+    
+    def name():
+        return self.name

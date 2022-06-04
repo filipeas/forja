@@ -1,4 +1,5 @@
 # import numba
+import numpy as np
 
 class Network:
     def __init__(self):
@@ -58,5 +59,11 @@ class Network:
             err /= samples
             print('[epoch %d/%d   error = %f]' % (i + 1, epochs, err))
     
-    def layers():
+    def layers(self):
         return self.layers
+    
+    def summary(self):
+        print("your model: ")
+        print("[ \t nº layer \t | \t type \t | \t shape \t]: ")
+        for i, layer in enumerate(self.layers):
+            print("[\t" + str(i) + "\t|\t" + layer.name + "\t|\t" + str(np.array(layer.output).shape) + "]", end="\n")

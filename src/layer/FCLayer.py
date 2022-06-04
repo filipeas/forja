@@ -9,6 +9,7 @@ import numpy as np
 
 class FCLayer(Layer):
     def __init__(self, inputSize, outputSize):
+        self.name = "full_conected"
         self.weights = np.random.rand(inputSize, outputSize) - 0.5
         self.bias = np.random.rand(1, outputSize) - 0.5
     

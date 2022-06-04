@@ -15,6 +15,7 @@ class ConvLayer(Layer):
     layerDepth: outputDepth
     """
     def __init__(self, inputShape, kernelShape, layerDepth):
+        self.name = "convolutional"
         self.inputShape = inputShape
         self.inputDepth = inputShape[2]
         self.kernelShape = kernelShape
