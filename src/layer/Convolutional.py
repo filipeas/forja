@@ -24,10 +24,11 @@ class ConvLayer(Layer):
         self.outputShape = (inputShape[0] - kernelShape[0] + 1, inputShape[1] - kernelShape[1] + 1, layerDepth)
         self.weights = np.random.rand(kernelShape[0], kernelShape[1], self.inputDepth, layerDepth) - 0.5
         self.bias = np.random.rand(layerDepth) - 0.5
+
+        self.output = np.zeros(self.outputShape)
     
     def forwardPropagation(self, input):
         self.input = input
-        self.output = np.zeros(self.outputShape)
 
         print("input shape: " + str(self.input.shape), end="\n")
         print("output shape: " + str(self.output.shape), end="\n")

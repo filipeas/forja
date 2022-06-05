@@ -36,40 +36,10 @@ y_train = [y_data]
 
 # criando rede
 net = Network()
-net.add(ConvLayer((500, 390, 1), (5,5), 32))
-net.add(ActivationLayer(tanh, tanhPrime))
-
-# net.add(ConvLayer((496, 386, 32), (5,5), 32))
-# net.add(ActivationLayer(tanh, tanhPrime))
-
-# net.add(ConvLayer((492, 382, 32), (15,15), 64))
-# net.add(ActivationLayer(tanh, tanhPrime))
-
-# treinando
-net.use(mse, msePrime)
-# net.fit(folha_resposta, y_train, epochs=1, learningRate=0.3)
 
 """
-verificando camadas
+lendo modelo salvo
 """
-# retornar uma lista de todas as camadas criadas. Cada camada é convertida para array numpy para plot
-layer_outputs = [np.array(layer.output) for layer in net.layers] # esse exemplo retorna uma lista com 6 camadas (exatamente a qtd de camadas criadas)
-# print(len(layer_outputs))
+net = net.load('checkout')
 
-"""
-plotando sumário da rede
-"""
 net.summary()
-
-"""
-salvar modelo
-"""
-# net.save()
-
-
-# """
-# plots
-# """
-# for i in range(len(layer_outputs)):
-#     for j in range(32):
-#         plt.imsave('plots/conv'+str(i)+'_channel'+str(j)+'.jpg', layer_outputs[i][:, :, j])

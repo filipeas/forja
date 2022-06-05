@@ -1,6 +1,6 @@
 # import numba
 import numpy as np
-import json
+import pickle
 
 class Network:
     def __init__(self):
@@ -69,10 +69,23 @@ class Network:
     
     def summary(self):
         print("your model: ")
-        print("[ \t nº layer \t | \t type \t | \t shape \t]: ")
+        print("[ \t nº layer \t | \t type \t\t | \t shape \t\t\t | \t kernel \t]: ")
         for i, layer in enumerate(self.layers):
-            print("[\t" + str(i) + "\t|\t" + layer.name + "\t|\t" + str(np.array(layer.output).shape) + "]", end="\n")
+            if layer.name != "activation":
+                print("[ \t " + str(i) + " \t\t | \t " + layer.name + " \t | \t " + str(np.array(layer.output).shape) + " \t | \t " + str(layer.kernelShape) + " \t]", end="\n")
+            else:
+                print("[ \t " + str(i) + " \t\t | \t " + layer.name + " \t]", end="\n")
     
     def save(self):
-        networkJson = json.dumps({'network': self.__dict__})
-        print(networkJson)
+        print("saving model on checkout")
+        dbFile = open('checkout', 'ab')
+        pickle.dump(self, dbFile)
+        dbFile.close()
+    
+    def load(self, name):
+        print('loading model of checkout')
+        dbFile = open(str(name), 'rb')
+        db = pickle.load(dbFile)
+        dbFile.close()
+
+        return db
