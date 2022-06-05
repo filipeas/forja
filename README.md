@@ -13,6 +13,7 @@ Há alguns exemplos que dependem de algumas bibliotecas. Veja a lista abaixo dos
 
 Dependências: 
 * tensorflow
+* numpy
 
 ### Windows e linux
 

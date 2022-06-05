@@ -29,6 +29,10 @@ class ConvLayer(Layer):
         self.input = input
         self.output = np.zeros(self.outputShape)
 
+        print("input shape: " + str(self.input.shape), end="\n")
+        print("output shape: " + str(self.output.shape), end="\n")
+        print("weight shape: " + str(self.weights.shape), end="\n")
+
         for k in range(self.layerDepth):
             for d in range(self.inputDepth):
                 self.output[:,:,k] += signal.correlate2d(self.input[:,:,d], self.weights[:,:,d,k], 'valid') + self.bias[k]

@@ -1,11 +1,14 @@
 # import numba
 import numpy as np
+import json
 
 class Network:
     def __init__(self):
         self.layers = []
         self.loss = None
         self.lossPrime = None
+
+        self.epochs = 0
     
     """
     Function for add layer to network
@@ -43,6 +46,8 @@ class Network:
     def fit(self, xTrain, yTrain, epochs, learningRate):
         samples = len(xTrain)
 
+        self.epochs = epochs
+
         for i in range(epochs):
             err = 0
             for j in range(samples):
@@ -67,3 +72,7 @@ class Network:
         print("[ \t nº layer \t | \t type \t | \t shape \t]: ")
         for i, layer in enumerate(self.layers):
             print("[\t" + str(i) + "\t|\t" + layer.name + "\t|\t" + str(np.array(layer.output).shape) + "]", end="\n")
+    
+    def save(self):
+        networkJson = json.dumps({'network': self.__dict__})
+        print(networkJson)

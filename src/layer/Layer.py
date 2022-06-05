@@ -10,8 +10,11 @@ class Layer:
     def backwardPropagation(self, outputError, learningRate):
         raise NotImplementedError
     
-    def output():
+    def input(self):
+        return self.input
+    
+    def output(self):
         return self.output
     
-    def name():
+    def name(self):
         return self.name
