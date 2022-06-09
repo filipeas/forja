@@ -3,6 +3,27 @@ import numpy as np
 import math
 import sys
 
+def calculate_entropy(y):
+    """
+    Calculate the entropy of label array y
+    """
+    log2 = lambda x: math.log(x) / math.log(2)
+    unique_labels = np.unique(y)
+    entropy = 0
+    for label in unique_labels:
+        count = len(y[y == label])
+        p = count / len(y)
+        entropy += -p * log2(p)
+    return entropy
+
+
+def mean_squared_error(y_true, y_pred):
+    """
+    Returns the mean squared error between y_true and y_pred
+    """
+    mse = np.mean(np.power(y_true - y_pred, 2))
+    return mse
+
 def calculate_variance(X):
     """
     Return the variance of the features in dataset X
@@ -19,6 +40,24 @@ def calculate_std_dev(X):
     """
     std_dev = np.sqrt(calculate_variance(X))
     return std_dev
+
+def euclidean_distance(x1, x2):
+    """
+    Calculates the l2 distance between two vectors
+    """
+    distance = 0
+    # Squared distance between each coordinate
+    for i in range(len(x1)):
+        distance += pow((x1[i] - x2[i]), 2)
+    return math.sqrt(distance)
+
+
+def accuracy_score(y_true, y_pred):
+    """
+    Compare y_true to y_pred and return the accuracy
+    """
+    accuracy = np.sum(y_true == y_pred, axis=0) / len(y_true)
+    return accuracy
 
 def calculate_covariance_matrix(X, Y=None):
     """
