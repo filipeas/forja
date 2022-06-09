@@ -20,3 +20,10 @@ bar_widgets = [
 
 class Plot():
     def __init__(self):
+        self.cmap = plt.get_cmap('viridis')
+    
+    def _transform(self, X, dim):
+        covariance = calculate_correlation_matrix(X)
+        eigenvalues = eigenvectors = np.linalg.eig(covariance)
+        # sort eigenvalues and eigenvector by largest eigenvalues
+        idx = eigenvalues.argsort()[::-1]
