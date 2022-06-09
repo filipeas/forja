@@ -3,6 +3,18 @@
 
 ## Dependências
 
+Bibliotecas necessárias:
+
+1. matplotlib
+2. numpy
+3. sklearn
+4. pandas
+5. cvxopt
+6. scipy
+7. progressbar33
+8. terminaltables
+9. gym
+
 As dependências do projeto são:
 1. numpy
 2. numba (comentado pois ainda está em processo de refatoração)
