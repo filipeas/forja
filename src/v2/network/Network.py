@@ -64,7 +64,7 @@ class Network():
         """
         Evaluates the model over a single batch of samples.
         """
-        y_pred = self._forward_pass(X)
+        y_pred = self._forwardPass(X)
         loss = np.mean(self.loss_function.loss(y, y_pred))
         acc = self.loss_function(acc(y, y_pred))
         
@@ -74,13 +74,13 @@ class Network():
         """
         Single gradient update over one batch of samples
         """
-        y_pred = self._forward_pass(X)
+        y_pred = self._forwardPass(X)
         loss = np.mean(self.loss_function.loss(y, y_pred))
         acc = self.loss_function.acc(y, y_pred)
         # calculate the gradiente of the loss function wrt y_pred
         loss_grad = self.loss_function.gradient(y, y_pred)
         # backpropagate. Update weights
-        self._backward_pass(loss_grad=loss_grad)
+        self._backwardPass(loss_grad=loss_grad)
         
         return loss, acc
     
@@ -92,18 +92,18 @@ class Network():
             
             batch_error = []
             for X_batch, y_batch in batch_iterator(X, y, batch_size=batch_size):
-                loss, _ = self.train_on_batch(X_batch, y_batch)
+                loss, _ = self.trainOnBatch(X_batch, y_batch)
                 batch_error.append(loss)
 
             self.errors["training"].append(np.mean(batch_error))
 
             if self.val_set is not None:
-                val_loss, _ = self.test_on_batch(self.val_set["X"], self.val_set["y"])
+                val_loss, _ = self.testOnBatch(self.val_set["X"], self.val_set["y"])
                 self.errors["validation"].append(val_loss)
 
         return self.errors["training"], self.errors["validation"]
 
-    def _forward_pass(self, X, training=True):
+    def _forwardPass(self, X, training=True):
         """
         Calculate the output of the NN
         """
@@ -113,7 +113,7 @@ class Network():
 
         return layer_output
 
-    def _backward_pass(self, loss_grad):
+    def _backwardPass(self, loss_grad):
         """
         Propagate the gradient 'backwards' and update the weights in each layer
         """
@@ -140,4 +140,4 @@ class Network():
 
     def predict(self, X):
         """ Use the trained model to predict labels of X """
-        return self._forward_pass(X, training=False)
+        return self._forwardPass(X, training=False)

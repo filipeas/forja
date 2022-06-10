@@ -1,5 +1,4 @@
 import numpy as np
-from v2.utils import make_diagonal, normalize
 
 class Adam():
     def __init__(self, learning_rate=0.001, b1=0.9, b2=0.999):

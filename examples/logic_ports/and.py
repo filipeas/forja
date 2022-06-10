@@ -6,11 +6,11 @@ import numpy as np
 ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "src")
 sys.path.append(ROOT_DIR)
 
-from network.Network import Network
-from layer.FCLayer import FCLayer
-from layer.ActivationLayer import ActivationLayer
-from activation.Activation import tanh, tanhPrime
-from loss.Loss import mse, msePrime
+from v1.network.Network import Network
+from v1.layer.FCLayer import FCLayer
+from v1.layer.ActivationLayer import ActivationLayer
+from v1.activation.Activation import tanh, tanhPrime
+from v1.loss.Loss import mse, msePrime
 
 # dados de treino
 x_test = np.array([ [[1,0]], [[1,1]], [[0,0]], [[0,1]] ])

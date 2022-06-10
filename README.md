@@ -12,7 +12,9 @@ Bibliotecas necessárias:
 5. cvxopt
 6. scipy
 7. progressbar33
+- 7.1 conda install -c conda-forge progressbar
 8. terminaltables
+- 8.1. conda install -c conda-forge terminaltables
 9. gym
 
 As dependências do projeto são:
