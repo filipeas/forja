@@ -6,7 +6,7 @@
 </p>
 
 ## Contributors
-(Filipe A.S)[https://github.com/filipeas]
+[Filipe A.S](https://github.com/filipeas)
 
 ## Dependencies
 
